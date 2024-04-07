@@ -1,5 +1,3 @@
-datetime
-dotenv
-flask
-os
+python-dotenv
+Flask
 psycopg2
