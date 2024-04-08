@@ -22,6 +22,22 @@ url = os.getenv("DATABASE_URL")
 connection = psycopg2.connect(url)
 ACCESS_TOKEN = "15ed874984a4a6de95409919e106b80b"
 
+# HOMEPAGE
+@app.route("/")
+def home_page():
+    name = ''' 
+    EAI - API PROJECT 
+    Muhamad Akdzan Angganegara - 1202213351
+    Nisrina Febriyanti - 1202213353
+    
+    NOTES FOR API ENDPOINT:
+    >> GET METHOD <<
+1.  /books: Accesses data on books already stored in the database.
+2.  /users: Retrieves information about users already present in the database.
+3.  /authors: Fetches data related to authors stored in the database.
+4.  /borrowings : Retrieves records of book borrowings already stored in the database.
+'''
+    return (name)
 
 # POST method
 @app.post("/api/books")
@@ -176,16 +192,6 @@ def create_borrowings():
 # GET methods
 @app.get("/books")
 def get_books():
-    token = request.headers.get("X-Access-Token")
-    if token != ACCESS_TOKEN:
-        return (
-            jsonify(
-                {
-                    "message": "Unauthorized: Access is denied due to invalid credentials."
-                }
-            ),
-            401,
-        )
     # to get all from books table
     books = "SELECT * FROM books"
     now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -199,16 +205,6 @@ def get_books():
 
 @app.get("/users")
 def get_users():
-    token = request.headers.get("X-Access-Token")
-    if token != ACCESS_TOKEN:
-        return (
-            jsonify(
-                {
-                    "message": "Unauthorized: Access is denied due to invalid credentials."
-                }
-            ),
-            401,
-        )
     # to get all from users table
     with connection:
         with connection.cursor() as cursor:
@@ -221,16 +217,6 @@ def get_users():
 
 @app.get("/authors")
 def get_authors():
-    token = request.headers.get("X-Access-Token")
-    if token != ACCESS_TOKEN:
-        return (
-            jsonify(
-                {
-                    "message": "Unauthorized: Access is denied due to invalid credentials."
-                }
-            ),
-            401,
-        )
     # to get all from authors table
     authors = "SELECT * FROM authors"
     now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -244,16 +230,6 @@ def get_authors():
 
 @app.get("/borrowings")
 def get_borrowings_by_user_id():
-    token = request.headers.get("X-Access-Token")
-    if token != ACCESS_TOKEN:
-        return (
-            jsonify(
-                {
-                    "message": "Unauthorized: Access is denied due to invalid credentials."
-                }
-            ),
-            401,
-        )
     # to get borrowing info from specific user_id
     user_id = request.args.get("user_id")
 
