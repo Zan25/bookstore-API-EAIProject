@@ -25,11 +25,11 @@ ACCESS_TOKEN = "15ed874984a4a6de95409919e106b80b"
 @app.route("/")
 def home_page():
     name = ''' 
-    <h1 style="color: #007bff;">EAI - API PROJECT</h1>
+    <h1 style="color: #2596be;">EAI - API PROJECT</h1>
     <p><b>Muhamad Akdzan Angganegara - 1202213351</b></p>
     <p><b>Nisrina Febriyanti - 1202213353</b></p>
     
-    <h2 style="color: #28a745;">NOTES FOR API ENDPOINT (GET METHOD):</h2>
+    <h2 style="color: #2596be;">NOTES FOR API ENDPOINT (GET METHOD):</h2>
     <ol>
         <li>/books: Accesses data on books already stored in the database.</li>
         <li>/users: Retrieves information about users already present in the database.</li>
