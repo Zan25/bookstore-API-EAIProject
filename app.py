@@ -22,22 +22,22 @@ url = os.getenv("DATABASE_URL")
 connection = psycopg2.connect(url)
 ACCESS_TOKEN = "15ed874984a4a6de95409919e106b80b"
 
-# HOMEPAGE
 @app.route("/")
 def home_page():
     name = ''' 
-    EAI - API PROJECT 
-    Muhamad Akdzan Angganegara - 1202213351
-    Nisrina Febriyanti - 1202213353
+    <h1 style="color: #007bff;">EAI - API PROJECT</h1>
+    <p><b>Muhamad Akdzan Angganegara - 1202213351</b></p>
+    <p><b>Nisrina Febriyanti - 1202213353</b></p>
     
-    NOTES FOR API ENDPOINT:
-    >> GET METHOD <<
-1.  /books: Accesses data on books already stored in the database.
-2.  /users: Retrieves information about users already present in the database.
-3.  /authors: Fetches data related to authors stored in the database.
-4.  /borrowings : Retrieves records of book borrowings already stored in the database.
-'''
-    return (name)
+    <h2 style="color: #28a745;">NOTES FOR API ENDPOINT (GET METHOD):</h2>
+    <ol>
+        <li>/books: Accesses data on books already stored in the database.</li>
+        <li>/users: Retrieves information about users already present in the database.</li>
+        <li>/authors: Fetches data related to authors stored in the database.</li>
+        <li>/borrowings: Retrieves records of book borrowings already stored in the database.</li>
+    </ol>
+    '''
+    return name
 
 # POST method
 @app.post("/api/books")
